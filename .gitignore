@@ -1,0 +1,7 @@
+*.cpp linguist-detectable=true
+*.java linguist-detectable=true
+*.js linguist-detectable=true
+*.py linguist-detectable=true
+*.scala linguist-detectable=true
+*.sql linguist-detectable=true
+*.ts linguist-detectable=true
