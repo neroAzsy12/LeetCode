@@ -1,5 +1,5 @@
-Problem|Topic|Difficulty|Languages
+Problem|Difficulty|Time Complexity|Languages
 |---|---|---|--|
-|1. Two Sum|Algorithms|Easy|Java|
-|2. Add Two Numbers|Algorithms|Medium|Java|
-|74. Search a 2D Matrix|Algorithms|Medium|Java|
+|1. Two Sum|Easy|O(n)|Java|
+|2. Add Two Numbers|Medium|O(n)|Java|
+|74. Search a 2D Matrix|Medium|O(n)|Java|
