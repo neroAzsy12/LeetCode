@@ -8,7 +8,11 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+// TC: O(max(m, n)), where m is the number of nodes in l1, and n is the number of nodes in l2
+// SC: O(max(m,n))
 class Solution {
+  
   public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
       ListNode head = new ListNode(-1);   // the node that will be returned
       ListNode tmp = head;                // tmp node that references head but will be traversed
