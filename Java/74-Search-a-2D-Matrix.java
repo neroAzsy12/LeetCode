@@ -2,6 +2,8 @@ public class Solution {
 
     /**
      * TC: O(log (mn)), where m is the number of rows, and n is the number of elements per row
+     * SC: O(1), since we do not need to allocate extra space
+     *
      * @param matrix, integer matrix of m x n
      * @param target, value target
      * @return if the target value exists in the matrix
