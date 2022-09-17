@@ -1,7 +1,7 @@
 public class Solution {
 
     /**
-     * TC: O(log m + log n), where m is the number of rows, and n is the number of elements per row
+     * TC: O(log (mn)), where m is the number of rows, and n is the number of elements per row
      * @param matrix, integer matrix of m x n
      * @param target, value target
      * @return if the target value exists in the matrix
