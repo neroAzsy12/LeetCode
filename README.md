@@ -11,4 +11,5 @@ id|name|difficulty|TC|Language|Approach to solve
 175|Combine Two Tables|Easy|N/A|SQL|Database
 577|Employee Bonus|Easy|N/A|SQL|Database
 595|Big Countries|Easy|N/A|SQL|Database
+704|Binary Search|Easy|O(log n)|C++,Java,Python|Binary Search
 1757|Recyclable and Low Fat Products|Easy|N/A|SQL|Database
