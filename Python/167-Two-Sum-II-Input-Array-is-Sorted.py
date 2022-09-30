@@ -20,4 +20,4 @@ class Solution(object):
         else:
           return [left_pointer + 1, right_pointer + 1]  # return the indices as our answer
 
-      return [-1, -1]
+      return [-1, -1]   # in the event we do not find two numbers that add to the target value
