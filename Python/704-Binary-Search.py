@@ -1,5 +1,10 @@
 from typing import List
 class Solution:
+  '''
+  Binary Search Algorithm
+    * TC: O(log n), where n is the number of elements in nums
+    * SC: O(1), no extra space is allocated
+  '''  
   def search(self, nums: List[int], target: int) -> int:
     left = 0
     right = len(nums) - 1
