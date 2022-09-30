@@ -3,15 +3,15 @@ using namespace std;
 
 // Definition for singly-linked list.
 struct ListNode {
-      int val;
-      ListNode *next;
-      ListNode() : val(0), next(nullptr) {}
-      ListNode(int x) : val(x), next(nullptr) {}
-      ListNode(int x, ListNode *next) : val(x), next(next) {}
+  int val;
+  ListNode *next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 class Solution {
-public:
+  public:
     // TC: O(max(m, n)), where m is the number of nodes in l1, and n is the number of nodes in l2
     // SC: O(max(m,n))
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
