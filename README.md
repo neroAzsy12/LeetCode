@@ -5,6 +5,7 @@ id|name|difficulty|TC|Language|Approach to solve
 ---|---|---|---|---|---
 1|Two Sum|Easy|O(n)|C++,Java,Python|HashMap,Map,Array
 2|Add Two Numbers|Medium|O(max(m, n))|C++,Java,Python|LinkedList
+48|Rotate Image|Medium|O(n^2)|C++,Java,Python|Math
 74|Search a 2D Matrix|Medium|O(log(m) + log(n))|C++,Java,Python|Binary Search
 125|Valid Palindrome|Easy|O(n)|C++,Java,Python|Two Pointer
 167|Two Sum II Input Array is Sorted|Medium|O(n)|C++,Java,Python|Two Pointer
