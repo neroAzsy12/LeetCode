@@ -8,13 +8,14 @@ class Solution {
      * SC: O(n), we could potentially add n elements in our hashmap
      */
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> compliment = new HashMap<>();
+        HashMap<Integer, Integer> seenNums = new HashMap<>();   // key: nums[index], value: index
         
         for (int i = 0; i < nums.length; i++) {
-            if (compliment.containsKey(target - nums[i])) {
-                return new int[] { compliment.get(target - nums[i]), i };   // stores the pair: difference from target and nums[i], and the ith index
+            if (seenNums.containsKey(target - nums[i])) {
+                // return indices of the two numbers that add up to target
+                return new int[] { seenNums.get(target - nums[i]), i };
             }
-            compliment.put(nums[i], i);
+            seenNums.put(nums[i], i);
         }
         
         throw new IllegalArgumentException("No Two Sum solution");
