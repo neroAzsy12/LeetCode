@@ -24,4 +24,4 @@ class Solution:
       if leftMin < 0:   # needed since, we may get -1 due to a wildcard
         leftMin = 0
     
-    return leftMin == 0 # return true if the minimum '(' we can have reaches 0
+    return leftMin == 0 # return true if the minimum '(' we can have can reach 0
