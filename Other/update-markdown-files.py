@@ -1,13 +1,13 @@
 import os
 
-directories_to_access = [  # List of Directories that need to be accessed
+directories_to_access = [         # List of Directories that need to be accessed
   '../C++', 
   '../Go', 
   '../Java', 
   '../Python', 
   '../SQL'
 ]
-language_map = {            # Mapping of respective language solution
+language_map = {                  # Mapping of respective language solution
   'py' : 'Python', 
   'cpp' : "C++", 
   'java' : 'Java', 
@@ -17,30 +17,36 @@ language_map = {            # Mapping of respective language solution
 problems_solved = {}              # Key: Problem Id, Value: { name: Problem Name, code: [Language(s)] }
 previous_data_map = None          # Key: Problem Id, Value: { difficulty: (Easy || Medium || hard), time: TC, space: SC, approach: subsection }
 
+
 def getReadMeFileContent():
+  """
+  Opens the README file, and obtains the following info: { difficulty, time, space, approach } for each Problem
+  """
+  
   file = open('../README.md', 'r')
   content_lines = file.read().splitlines()
-  startIndex = 4 # 2
+  startIndex = 4
   result = {}
 
   for index in range(startIndex, len(content_lines)):
     currentLine = content_lines[index].split('|')
     
     result[int(currentLine[0])] = {
-      'difficulty' : currentLine[2],
-      'time' : currentLine[3],
-      'space' : currentLine[4],
-      'approach' : currentLine[6]
+      'difficulty' : currentLine[2],  # should only be (Easy, Medium or Hard)
+      'time' : currentLine[3],        # ex) O(n)
+      'space' : currentLine[4],       # ex) O(1)
+      'approach' : currentLine[6]     # ex) Hashing or LinkedList
     }
 
   file.close()
   return result
 
-# solved_map refers to problems_solved
-# data_map refers to previous_data_map
 def writeContentToFiles(solved_map, data_map):
-  solution_link = 'https://github.com/neroAzsy12/LeetCode/blob/main/Go/1-Two-Sum.go'
-  problem_link = 'https://leetcode.com/problems/two-sum/'
+  """
+  Updates both the README and CodingSolutions MD files\n
+  solved_map refers to problems_solved\n
+  data_map refers to previous_data_map\n
+  """
 
   readme_file = open('../README.md', 'w')
   readme_file.write('# LeetCode Solutions\n\n')
@@ -108,10 +114,6 @@ for directory in directories_to_access:
 
 problems_solved = dict(sorted(problems_solved.items())) # sort dict by key
 
-# we could open the readme file to save the difficult rating before rewriting to avoid retyping
 previous_data_map = getReadMeFileContent()
-
-print(previous_data_map)
-
 
 writeContentToFiles(problems_solved, previous_data_map)

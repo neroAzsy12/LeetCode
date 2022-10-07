@@ -1,6 +1,6 @@
 #|Title|Difficulty|Time|Space|Solution|Approach
 ---|---|---|---|---|---|---
-1|Two Sum|TBD|TBD|TBD|C++,Go,Java,Python|TBD
+1|Two Sum|Easy|O(n)|O(n)|C++,Go,Java,Python|Hashing
 2|Add Two Numbers|TBD|TBD|TBD|C++,Go,Java,Python|TBD
 3|Longest Substring Without Repeating Characters|TBD|TBD|TBD|Go,Python|TBD
 11|Container With Most Water|TBD|TBD|TBD|Python|TBD
