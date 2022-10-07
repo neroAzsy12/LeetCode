@@ -67,14 +67,13 @@ def writeContentToFiles(solved_map, data_map):
     lang_solution = ''
 
     for index in range(len(solved_map[key]['code']) - 1):
-      # https://github.com/neroAzsy12/LeetCode/blob/main/C%2B%2B/1-Two-Sum.cpp
       lang_readme += '[' + language_map[solved_map[key]['code'][index]] + '](https://github.com/neroAzsy12/LeetCode/blob/main/' + language_map[solved_map[key]['code'][index]] + '/' + solution_path + '.' + solved_map[key]['code'][index] + ')'
       lang_readme += ', '
 
       lang_solution += language_map[solved_map[key]['code'][index]]
       lang_solution += ','
 
-    lang_readme += '[' + language_map[solved_map[key]['code'][-1]] + '](https://github.com/neroAzsy12/LeetCode/blob/main/' + language_map[solved_map[key]['code'][-1]] + '/' + title + '.' + solved_map[key]['code'][-1] + ')'
+    lang_readme += '[' + language_map[solved_map[key]['code'][-1]] + '](https://github.com/neroAzsy12/LeetCode/blob/main/' + language_map[solved_map[key]['code'][-1]] + '/' + solution_path + '.' + solved_map[key]['code'][-1] + ')'
     lang_solution += language_map[solved_map[key]['code'][-1]]
 
     readme_file.write(id + '|' + title + '|' + difficulty + '|' + time + '|' + space + '|' + lang_readme + '|' + approach + '\n')
