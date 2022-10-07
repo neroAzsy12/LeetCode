@@ -2,6 +2,7 @@ from typing import List
 
 class Solution:
   '''
+  Math concept
   Given an (N x N) matrix representing an image, rotate the image by 90 degrees (clockwise) 
     * Time: O(n^2), where n is the total number of cells in our n x n matrix
     * Space: O(1), no extra space is allocated

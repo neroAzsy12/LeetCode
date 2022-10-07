@@ -1,6 +1,6 @@
 class Solution:
   '''
-  Sliding Window
+  Sliding Window approach
     TC: O(n), where n is the length of s
     SC: O(n), allocate extra space with our set, can potentially hold n elements
   '''

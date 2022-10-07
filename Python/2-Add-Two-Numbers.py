@@ -6,6 +6,7 @@ class ListNode(object):
 
 class Solution(object):
   """
+  LinkedList approach
   TC: O(max(m, n)), where m is the number of nodes in l1, and n is the number of nodes in l2
   SC: O(max(m, n))
   
