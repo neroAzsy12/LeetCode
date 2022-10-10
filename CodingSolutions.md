@@ -8,31 +8,31 @@
 74|Search a 2D Matrix|Medium|O(log m + log n)|O(1)|C++,Java,Python|Binary Search
 125|Valid Palindrome|Easy|O(n)|O(1)|C++,Java,Python|Two Pointer
 167|Two Sum II Input Array is Sorted|Medium|O(n)|O(1)|C++,Java,Python|Two Pointer
-175|Combine Two Tables|TBD|TBD|TBD|SQL|TBD
-181|Employees Earning More Than Their Managers|TBD|TBD|TBD|SQL|TBD
-182|Duplicate Emails|TBD|TBD|TBD|SQL|TBD
-183|Customers Who Never Order|TBD|TBD|TBD|SQL|TBD
-196|Delete Duplicate Emails|TBD|TBD|TBD|SQL|TBD
+175|Combine Two Tables|Easy|N/A|N/A|SQL|Database
+181|Employees Earning More Than Their Managers|Easy|N/A|N/A|SQL|Database
+182|Duplicate Emails|Easy|N/A|N/A|SQL|Database
+183|Customers Who Never Order|Easy|N/A|N/A|SQL|Database
+196|Delete Duplicate Emails|Easy|N/A|N/A|SQL|Database
 217|Contains Duplicates|Easy|O(n)|O(n)|C++,Java,Python|Hashing
-511|Game Play Analysis I|TBD|TBD|TBD|SQL|TBD
-577|Employee Bonus|TBD|TBD|TBD|SQL|TBD
-584|Find Customer Referee|TBD|TBD|TBD|SQL|TBD
-586|Customer Placing the Largest Number of Orders|TBD|TBD|TBD|SQL|TBD
-595|Big Countries|TBD|TBD|TBD|SQL|TBD
-596|Classes More Than 5 Students|TBD|TBD|TBD|SQL|TBD
-620|Not Boring Movies|TBD|TBD|TBD|SQL|TBD
-627|Swap Salary|TBD|TBD|TBD|SQL|TBD
+511|Game Play Analysis I|Easy|N/A|N/A|SQL|Database
+577|Employee Bonus|Easy|N/A|N/A|SQL|Database
+584|Find Customer Referee|Easy|N/A|N/A|SQL|Database
+586|Customer Placing the Largest Number of Orders|Easy|N/A|N/A|SQL|Database
+595|Big Countries|Easy|N/A|N/A|SQL|Database
+596|Classes More Than 5 Students|Easy|N/A|N/A|SQL|Database
+620|Not Boring Movies|Easy|N/A|N/A|SQL|Database
+627|Swap Salary|Easy|N/A|N/A|SQL|Database
 678|Valid Parenthesis String|Medium|O(n)|O(1)|C++,Python|Greedy
 704|Binary Search|Easy|O(log n)|O(1)|C++,Java,Python|Binary Search
-1075|Project Employees I|TBD|TBD|TBD|SQL|TBD
-1179|Reformat Department Table|TBD|TBD|TBD|SQL|TBD
-1350|Students With Invalid Departments|TBD|TBD|TBD|SQL|TBD
-1378|Replace Employee ID With The Unique Identifier|TBD|TBD|TBD|SQL|TBD
-1407|Top Travellers|TBD|TBD|TBD|SQL|TBD
-1484|Group Sold Products By The Date|TBD|TBD|TBD|SQL|TBD
-1587|Bank Account Summary II|TBD|TBD|TBD|SQL|TBD
-1683|Invalid Tweets|TBD|TBD|TBD|SQL|TBD
-1693|Daily Leads and Partners|TBD|TBD|TBD|SQL|TBD
-1757|Recyclable and Low Fat Products|TBD|TBD|TBD|SQL|TBD
-1795|Rearrange Products Table|TBD|TBD|TBD|SQL|TBD
-1873|Calculate Special Bonus|TBD|TBD|TBD|SQL|TBD
+1075|Project Employees I|Easy|N/A|N/A|SQL|Database
+1179|Reformat Department Table|Easy|N/A|N/A|SQL|Database
+1350|Students With Invalid Departments|Easy|N/A|N/A|SQL|Database
+1378|Replace Employee ID With The Unique Identifier|Easy|N/A|N/A|SQL|Database
+1407|Top Travellers|Easy|N/A|N/A|SQL|Database
+1484|Group Sold Products By The Date|Easy|N/A|N/A|SQL|Database
+1587|Bank Account Summary II|Easy|N/A|N/A|SQL|Database
+1683|Invalid Tweets|Easy|N/A|N/A|SQL|Database
+1693|Daily Leads and Partners|Easy|N/A|N/A|SQL|Database
+1757|Recyclable and Low Fat Products|Easy|N/A|N/A|SQL|Database
+1795|Rearrange Products Table|Easy|N/A|N/A|SQL|Database
+1873|Calculate Special Bonus|Easy|N/A|N/A|SQL|Database
