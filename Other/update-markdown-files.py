@@ -57,6 +57,12 @@ def getCodingSolutionsContent():
   return result
 
 def getDataFromDirectories(directories, data_map, file_extension_map):
+  """
+  directories: problem_data_map\n
+  data_map: problem_data_map\n
+  file_extension_map: language_map\n
+  """
+
   for directory in directories:
     files = os.listdir(directory)
 
@@ -92,6 +98,11 @@ def getDataFromDirectories(directories, data_map, file_extension_map):
         data_map[problemId]['solutions'].sort()
 
 def writeContentToFiles(data_map, lang_map):
+  """
+  data_map: sorted_problem_data_map\n
+  lang_map: extension_map\n
+  """
+  
   readme_file = open('../README.md', 'w')
   readme_file.write('# LeetCode Solutions\n\n#|Title|Difficulty|Time|Space|Solution|Approach\n---|---|---|---|---|---|---\n')
 
