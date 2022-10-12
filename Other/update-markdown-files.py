@@ -7,6 +7,13 @@ directories_to_access = [         # List of Directories that need to be accessed
   '../Python', 
   '../SQL'
 ]
+extension_map = {                 # Mapping of respective file extensions
+  'Python': 'py', 
+  'C++': 'cpp', 
+  'Java': 'java', 
+  'SQL': 'sql', 
+  'Go': 'go'
+}
 language_map = {                  # Mapping of respective language solution
   'py' : 'Python', 
   'cpp' : "C++", 
@@ -14,106 +21,131 @@ language_map = {                  # Mapping of respective language solution
   'sql': 'SQL', 
   'go' : 'Go'
 }
-problems_solved = {}              # Key: Problem Id, Value: { name: Problem Name, code: [Language(s)] }
-previous_data_map = None          # Key: Problem Id, Value: { difficulty: (Easy || Medium || hard), time: TC, space: SC, approach: subsection }
+problem_data_map = None           # Key: Problem Id, Value: { name, difficulty: (Easy || Medium || hard), time: TC, solutions: [], space: SC, approach: subsection }
 
-
-def getReadMeFileContent():
+def getCodingSolutionsContent():
   """
-  Opens the README file, and obtains the following info: { difficulty, time, space, approach } for each Problem
+  Opens the Coding Solutions file, and obtains the following info for each problem:\n
+   {\n
+    approach: ex) Two Pointer, Math\n 
+    difficulty: (Easy, Medium, Hard),\n
+    name: ex) Two Sum,\n
+    solutions: [],\n
+    space: Space Complexity,\n 
+    time: Time Complexity\n 
+  }\n
   """
   
-  file = open('../README.md', 'r')
+  file = open('../CodingSolutions.md', 'r')
   content_lines = file.read().splitlines()
-  startIndex = 4
+  startIndex = 2
   result = {}
 
   for index in range(startIndex, len(content_lines)):
     currentLine = content_lines[index].split('|')
     
     result[int(currentLine[0])] = {
-      'difficulty' : currentLine[2],  # should only be (Easy, Medium or Hard)
-      'time' : currentLine[3],        # ex) O(n)
-      'space' : currentLine[4],       # ex) O(1)
-      'approach' : currentLine[6]     # ex) Hashing or LinkedList
+      'name' : currentLine[1],                # name of the problem
+      'difficulty' : currentLine[2],          # should only be (Easy, Medium or Hard)
+      'time' : currentLine[3],                # ex) O(n)
+      'space' : currentLine[4],               # ex) O(1)
+      'solutions' : currentLine[5].split(','),# ex) [C++, Go, Java, JavaScript, Python]
+      'approach' : currentLine[6]             # ex) Hashing or LinkedList or Math
     }
 
   file.close()
   return result
 
-def writeContentToFiles(solved_map, data_map):
-  """
-  Updates both the README and CodingSolutions MD files\n
-  solved_map refers to problems_solved\n
-  data_map refers to previous_data_map\n
-  """
+def getDataFromDirectories(directories, data_map, file_extension_map):
+  for directory in directories:
+    files = os.listdir(directory)
 
+    for file in files:
+      separator = file.split('-')
+      problemId = int(separator[0])
+
+      problemName = ''
+      file_extension = ''
+
+      for i in range(1, len(separator)):
+
+        if i != len(separator) - 1:
+          problemName += separator[i] + ' '
+        else:
+          separator_tmp = separator[-1].split('.')
+          problemName += separator_tmp[0]
+          file_extension = separator_tmp[1]
+
+      file_extension = file_extension_map[file_extension]
+
+      if problemId not in data_map:
+        data_map[problemId] = {
+          'name' : problemName,
+          'difficulty' : 'TBD',
+          'time' : 'TBD',
+          'space' : 'TBD',
+          'solutions' : [file_extension],
+          'approach' : 'TBD'
+        }
+      elif problemId in data_map and file_extension not in data_map[problemId]['solutions']:
+        data_map[problemId]['solutions'].append(file_extension)
+        data_map[problemId]['solutions'].sort()
+
+def writeContentToFiles(data_map, lang_map):
   readme_file = open('../README.md', 'w')
-  readme_file.write('# LeetCode Solutions\n\n')
-  readme_file.write('#|Title|Difficulty|Time|Space|Solution|Approach\n---|---|---|---|---|---|---\n')
+  readme_file.write('# LeetCode Solutions\n\n#|Title|Difficulty|Time|Space|Solution|Approach\n---|---|---|---|---|---|---\n')
 
   solution_file = open('../CodingSolutions.md', 'w')
   solution_file.write('#|Title|Difficulty|Time|Space|Solution|Approach\n---|---|---|---|---|---|---\n')
-
-  for key in solved_map:
-    id = str(key)
-
-    title_tmp = problems_solved[key]['title'].replace(' ', '-').lower()
-    title = '[' + solved_map[key]['title'] + '](https://leetcode.com/problems/' + title_tmp +')' #[Add Two Numbers](https://open.kattis.com/problems/addtwonumbers)<a name="Add Two Numbers"></a>
-
-    difficulty = data_map[key]['difficulty'] if key in data_map else 'TBD'
-    time = data_map[key]['time'] if key in data_map else 'TBD'
-    space = data_map[key]['space'] if key in data_map else 'TBD'
-    approach = data_map[key]['approach'] if key in data_map else 'TBD'
-
-    solution_path = id + ' ' + solved_map[key]['title']
-    solution_path = solution_path.replace(' ', '-')
-
-    lang_readme = ''
-    lang_solution = ''
-
-    for index in range(len(solved_map[key]['code']) - 1):
-      lang_readme += '[' + language_map[solved_map[key]['code'][index]] + '](https://github.com/neroAzsy12/LeetCode/blob/main/' + language_map[solved_map[key]['code'][index]] + '/' + solution_path + '.' + solved_map[key]['code'][index] + ')'
-      lang_readme += ', '
-
-      lang_solution += language_map[solved_map[key]['code'][index]]
-      lang_solution += ','
-
-    lang_readme += '[' + language_map[solved_map[key]['code'][-1]] + '](https://github.com/neroAzsy12/LeetCode/blob/main/' + language_map[solved_map[key]['code'][-1]] + '/' + solution_path + '.' + solved_map[key]['code'][-1] + ')'
-    lang_solution += language_map[solved_map[key]['code'][-1]]
-
-    readme_file.write(id + '|' + title + '|' + difficulty + '|' + time + '|' + space + '|' + lang_readme + '|' + approach + '\n')
-    solution_file.write(id + '|' + solved_map[key]['title'] + '|' + difficulty + '|' + time + '|' + space + '|' + lang_solution + '|' + approach + '\n')
   
+  for key in data_map:
+    problemId = str(key)
+
+    problemNameReadMe = "[{name}]({link}/{link_id})".format(
+      name = data_map[key]['name'],
+      link = 'https://leetcode.com/problems',
+      link_id = data_map[key]['name'].replace(' ', '-').lower()
+    )
+
+    difficulty = data_map[key]['difficulty']
+    time = data_map[key]['time']
+    space = data_map[key]['space']
+    approach = data_map[key]['approach']
+
+    solution_path = '{id}-{name}'.format(
+      id = problemId, 
+      name = data_map[key]['name'].replace(' ', '-')
+    )
+
+    readme_solutions = ''
+    solution_solutions = ''
+
+    for index in range(len(data_map[key]['solutions'])):
+      current_lang_solution = '[{lang}]({link}/{dir}/{file_name}.{extension})'.format(
+        lang = data_map[key]['solutions'][index],
+        link = 'https://github.com/neroAzsy12/LeetCode/blob/main',
+        dir = data_map[key]['solutions'][index],
+        file_name = solution_path,
+        extension = lang_map[data_map[key]['solutions'][index]]
+      )
+
+      readme_solutions += current_lang_solution
+      solution_solutions += data_map[key]['solutions'][index]
+
+      if index != len(data_map[key]['solutions']) - 1:
+        readme_solutions += ','
+        solution_solutions += ','
+    
+    readme_file.write(problemId + '|' + problemNameReadMe + '|' + difficulty + '|' + time + '|' + space + '|' + readme_solutions + '|' + approach + '\n')
+    solution_file.write(problemId + '|' + data_map[key]['name'] + '|' + difficulty + '|' + time + '|' + space + '|' + solution_solutions + '|' + approach + '\n')
+
   solution_file.close()
   readme_file.close()
 
-# Prepare data based from directories that are being accessed
-for directory in directories_to_access:
-  file_contents = os.listdir(directory)
+# First collect data from CodingSolutions.md, and directories
+problem_data_map = getCodingSolutionsContent()
+getDataFromDirectories(directories_to_access, problem_data_map, language_map)
 
-  for file in file_contents:
-    separator = file.split('-')
-    problemNum = int(separator[0])
-
-    problemName = ''
-    for i in range(1, len(separator) - 1):
-      problemName += separator[i] + ' '
-    
-    separator_tmp = separator[-1].split('.')
-    problemName = problemName + separator_tmp[0]
-
-
-    if problemNum not in problems_solved:
-      problems_solved[problemNum] = {
-        'title' : problemName,
-        'code' : [separator_tmp[-1]]
-      }
-    else:
-      problems_solved[problemNum]['code'].append(separator_tmp[-1])
-
-problems_solved = dict(sorted(problems_solved.items())) # sort dict by key
-
-previous_data_map = getReadMeFileContent()
-
-writeContentToFiles(problems_solved, previous_data_map)
+# update both README and CodingSolutions.md
+sorted_problem_data_map = dict(sorted(problem_data_map.items()))
+writeContentToFiles(sorted_problem_data_map, extension_map)

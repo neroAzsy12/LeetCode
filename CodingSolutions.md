@@ -5,6 +5,7 @@
 3|Longest Substring Without Repeating Characters|Medium|O(n)|O(n)|Go,Python|Sliding Window
 11|Container With Most Water|Medium|O(n)|O(1)|Python|Two Pointer
 48|Rotate Image|Medium|O(n^2)|O(1)|C++,Java,Python|Math
+70|Climbing Stairs|TBD|TBD|TBD|Python|TBD
 74|Search a 2D Matrix|Medium|O(log m + log n)|O(1)|C++,Java,Python|Binary Search
 125|Valid Palindrome|Easy|O(n)|O(1)|C++,Java,Python|Two Pointer
 167|Two Sum II Input Array is Sorted|Medium|O(n)|O(1)|C++,Java,Python|Two Pointer
@@ -22,7 +23,7 @@
 596|Classes More Than 5 Students|Easy|N/A|N/A|SQL|Database
 620|Not Boring Movies|Easy|N/A|N/A|SQL|Database
 627|Swap Salary|Easy|N/A|N/A|SQL|Database
-678|Valid Parenthesis String|Medium|O(n)|O(1)|C++,Python|Greedy
+678|Valid Parenthesis String|Medium|O(n)|O(1)|C++,Java,Python|Greedy
 704|Binary Search|Easy|O(log n)|O(1)|C++,Java,Python|Binary Search
 1075|Project Employees I|Easy|N/A|N/A|SQL|Database
 1179|Reformat Department Table|Easy|N/A|N/A|SQL|Database
